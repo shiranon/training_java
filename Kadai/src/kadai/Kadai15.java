@@ -25,7 +25,7 @@ public class Kadai15 {
 		int[][] numberArray = new int[3][3];
 		for (int x = 0; x < numberArray.length; x++) {
 			for (int y = 0; y < numberArray[x].length; y++) {
-				numberArray[x][y] = inputInt();
+				numberArray[x][y] = inputInt(x + 1);
 			}
 		}
 		System.out.println();
@@ -40,7 +40,7 @@ public class Kadai15 {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println();
 		System.out.println("時計回りに90度");
 		for (int y = 0; y < numberArray[0].length; y++) {
@@ -53,25 +53,34 @@ public class Kadai15 {
 			}
 			System.out.println();
 		}
-		
+
 		scanner.close();
 	}
 
 	/**
 	 * 整数値の入力を求めるメソッド
-	 * @return 入力された数値
+	 * 受けた数字を入力された回数として表示します
+	 * @param cnt
+	 * @return
 	 */
-	static int inputInt() {
+	static int inputInt(int cnt) {
 		scanner = new Scanner(System.in);
 		int num = 0;
 		while (true) {
 			try {
-				if (scanner.hasNextInt()) {
-					num = scanner.nextInt();
-					break;
+				System.out.println(cnt + "回目の入力です");
+				if (scanner.hasNextLong()) {
+					long longNum = scanner.nextLong();
+					if (longNum >= Integer.MIN_VALUE && longNum <= Integer.MAX_VALUE) {
+						num = (int) longNum;
+						break;
+					} else {
+						System.out.println("入力された値がintの範囲を超えています");
+						System.out.println("再入力してください");
+					}
 				} else {
 					scanner.next();
-					System.out.println("整数値以外が入力されました");
+					System.out.println("不正な値が入力されました");
 					System.out.println("再入力してください");
 				}
 			} catch (Exception e) {

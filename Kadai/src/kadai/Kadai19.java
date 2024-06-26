@@ -24,9 +24,9 @@ public class Kadai19 {
 		System.out.println((isDesk ? "降順" : "昇順") + "で並べ替えをしました");
 		numberArray = bubbleSort(numberArray, isDesk);
 		printIntArray(numberArray);
-		
+
 		scanner.close();
-		
+
 		System.out.println("==終了==");
 	}
 
@@ -36,10 +36,9 @@ public class Kadai19 {
 	 */
 	static void printIntArray(int[] numberArray) {
 		for (int i = 0; i < numberArray.length; i++) {
-			if (i == numberArray.length - 1) {
-				System.out.print(numberArray[i]);
-			} else {
-				System.out.print(numberArray[i] + " ");
+			System.out.print(numberArray[i]);
+			if (i < numberArray.length - 1) {
+				System.out.print(" ");
 			}
 		}
 		System.out.println();
@@ -85,10 +84,10 @@ public class Kadai19 {
 		int num = 0;
 		while (true) {
 			try {
+				System.out.println(cnt + "回目の入力です");
 				if (scanner.hasNextLong()) {
 					long longNum = scanner.nextLong();
 					if (longNum >= Integer.MIN_VALUE && longNum <= Integer.MAX_VALUE) {
-						System.out.println(cnt + "回目の入力です");
 						num = (int) longNum;
 						break;
 					} else {

@@ -111,11 +111,11 @@ public class Kadai18 {
 	 * @param numberArray
 	 */
 	static void printDoubleArray(double[] numberArray) {
-		for (int i = 0; i < numberArray.length; i++) {
-			if (i == numberArray.length - 1) {
-				System.out.print(numberArray[i]);
-			} else {
+		int length = numberArray.length;
+		for (int i = 0; i < length; i++) {
 				System.out.print(numberArray[i] + " ");
+			if(i< length -1) {
+				System.out.print(" ");
 			}
 		}
 		System.out.println();
@@ -132,8 +132,8 @@ public class Kadai18 {
 		double num = 0;
 		while (true) {
 			try {
+				System.out.println(cnt + "回目の入力です");
 				if (scanner.hasNextDouble()) {
-					System.out.println(cnt + "回目の入力です");
 					num = scanner.nextDouble();
 					break;
 

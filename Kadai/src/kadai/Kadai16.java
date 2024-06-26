@@ -199,10 +199,10 @@ public class Kadai16 {
 		int num = 0;
 		while (true) {
 			try {
+				System.out.println(cnt + "回目の入力です");
 				if (scanner.hasNextLong()) {
 					long longNum = scanner.nextLong();
 					if (longNum >= Integer.MIN_VALUE && longNum <= Integer.MAX_VALUE) {
-						System.out.println(cnt + "回目の入力です");
 						num = (int) longNum;
 						break;
 					} else {

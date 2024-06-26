@@ -63,11 +63,10 @@ public class Kadai21 {
 	 */
 	static void printIntArray(int[] numberArray) {
 		for (int i = 0; i < numberArray.length; i++) {
-			if (i == numberArray.length - 1) {
-				System.out.print(numberArray[i]);
-			} else {
-				System.out.print(numberArray[i] + " ");
-			}
+			System.out.print(numberArray[i]);
+			if (i < numberArray.length - 1) {
+				System.out.print(" ");
+			} 
 		}
 	}
 
