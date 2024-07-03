@@ -19,7 +19,6 @@ public class Kadai21 {
 
 		int[] numberArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		int[] shuffledArray = new int[9];
-		int[] removedArray = new int[8];
 
 		System.out.println("数字当てゲーム");
 		System.out.println("1から9までの数字から一つが抜けている物をシャッフルして表示するので");
@@ -37,10 +36,9 @@ public class Kadai21 {
 		for (int i = 0; i < 10; i++) {
 			// 配列の要素をシャッフルして末尾の要素を消す
 			shuffledArray = shuffleArray(numberArray);
-			removedArray = removeLastArrayElement(shuffledArray);
 
 			System.out.println((i + 1) + "回目");
-			printIntArray(removedArray);
+			printIntArray(removeLastArrayElement(shuffledArray));
 			System.out.println();
 			// 消された末尾の要素の入力を求める
 			answerNumber(shuffledArray[numberArray.length - 1]);
@@ -66,7 +64,7 @@ public class Kadai21 {
 			System.out.print(numberArray[i]);
 			if (i < numberArray.length - 1) {
 				System.out.print(" ");
-			} 
+			}
 		}
 	}
 
@@ -143,32 +141,6 @@ public class Kadai21 {
 			System.out.println("少し鈍いですね");
 		} else {
 			System.out.println("鈍すぎます");
-		}
-	}
-
-	/**
-	* 1から6までの整数値で入力を求めるメソッド
-	* @return 1～9までの数値
-	*/
-	static int getUserInputOneToNineInRange() {
-		scanner = new Scanner(System.in);
-		while (true) {
-			try {
-				if (scanner.hasNextInt()) {
-					int input = scanner.nextInt();
-					if (input <= 9 && input >= 1) {
-						return input;
-					} else {
-						System.out.println("エラー：1〜9を入力してください");
-					}
-				} else {
-					scanner.next();
-					System.out.println("入力が不正です");
-					System.out.println("再入力してください");
-				}
-			} catch (Exception e) {
-				System.out.println("エラーが発生しました");
-			}
 		}
 	}
 

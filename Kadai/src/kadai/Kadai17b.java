@@ -1,9 +1,8 @@
 package kadai;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Kadai17 {
+public class Kadai17b {
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -13,8 +12,9 @@ public class Kadai17 {
 		// 一致しなかった場合は、最後に追加して再度一行を表示する。
 
 		int SIZE = 20;
-		ArrayList<Integer> intList = new ArrayList<Integer>();
-		ArrayList<Integer> indexList = new ArrayList<Integer>();
+
+		int[] numberArray = new int[SIZE];
+
 		System.out.println(SIZE + "個数値を入力後、一行に表示します");
 		System.out.println("その後、入力した値が何番目にあるか検索する事ができます");
 
@@ -22,29 +22,18 @@ public class Kadai17 {
 
 		System.out.println("数値を" + SIZE + "個入力してください");
 		for (int i = 0; i < SIZE; i++) {
-			intList.add(inputInt(i + 1));
+			numberArray[i] = inputInt(i + 1);
 		}
+
 		System.out.println();
 
-		printIntList(intList, "");
+		printIntArray(numberArray, "");
 		System.out.println();
 
 		System.out.println("検索したい値を入力してください");
 		int searchNumber = inputInt();
 
-		indexList = searchNumberIndex(intList, searchNumber);
-
-		if (indexList.size() == 0) {
-			System.out.println("一致する数値がありませんでした");
-			System.out.println("末尾に値を追加します\n");
-			intList.add(searchNumber);
-			printIntList(intList, "");
-			System.out.println();
-		} else {
-			System.out.print(searchNumber + "は");
-			printIntList(indexList, "番目");
-			System.out.println("と一致しました");
-		}
+		printNumberIndex(numberArray, searchNumber);
 
 		System.out.println();
 		System.out.println("==終了==");
@@ -52,33 +41,43 @@ public class Kadai17 {
 	}
 
 	/**
-	 * 
-	 * @param intList
+	 * 配列中に一致する数値があればそれを出力し、一致したかしていないかを返す
+	 * @param intArray
 	 * @param searchNumber
-	 * @return
+	 * @return isMatched
 	 */
-	static ArrayList<Integer> searchNumberIndex(ArrayList<Integer> intList, int searchNumber) {
-		ArrayList<Integer> indexList = new ArrayList<Integer>();
-		int size = intList.size();
-		for (int i = 0; i < size; i++) {
-			if (intList.get(i) == searchNumber) {
-				indexList.add(i + 1);
+	static void printNumberIndex(int[] intArray, int searchNumber) {
+		boolean isMatched = false;
+		int length = intArray.length;
+		System.out.print(searchNumber + "は");
+		for (int i = 0; i < length; i++) {
+			if (intArray[i] == searchNumber) {
+				System.out.print((i + 1) + "番目 ");
+				isMatched = true;
 			}
 		}
-		return indexList;
+		if (isMatched) {
+			System.out.println("と一致しました");
+		} else {
+			System.out.println("一致する数値がありませんでした");
+			System.out.println("末尾に値を追加します\n");
+			printIntArray(intArray, "");
+			System.out.print(" " + searchNumber);
+		}
 	}
 
+
 	/**
-	 * 受け取ったintListを受け取った文字列と空白を入れて出力します
-	 * @param intList
+	 * 受け取ったintArrayを受け取った文字列と空白を入れて出力します
+	 * @param intArray
 	 * @param str
 	 */
-	static void printIntList(ArrayList<Integer> intList, String str) {
-		for (int i = 0; i < intList.size(); i++) {
-			System.out.print(intList.get(i) + str);
-			if (i < intList.size() - 1) {
+	static void printIntArray(int[] intArray, String str) {
+		int length = intArray.length;
+		for (int i = 0; i < length; i++) {
+			System.out.print(intArray[i] + str);
+			if (i < length - 1) {
 				System.out.print(" ");
-
 			}
 		}
 	}
@@ -124,10 +123,10 @@ public class Kadai17 {
 		int num = 0;
 		while (true) {
 			try {
+				System.out.println(cnt + "回目の入力です");
 				if (scanner.hasNextLong()) {
 					long longNum = scanner.nextLong();
 					if (longNum >= Integer.MIN_VALUE && longNum <= Integer.MAX_VALUE) {
-						System.out.println(cnt + "回目の入力です");
 						num = (int) longNum;
 						break;
 					} else {

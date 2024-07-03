@@ -18,13 +18,13 @@ public class Kadai20 {
 		// １〜６以外の時は、「エラー：１〜６を入力してください」を表示する。
 
 		System.out.println("入力した１〜６までの数の＊印を表示します");
-		int number =  getUserInputOneToSixInRange();
-		for(int i = 0;i<number;i++){
+		int number = getUserInputOneToSixInRange();
+		for (int i = 0; i < number; i++) {
 			System.out.print("＊");
 		}
 
 		scanner.close();
-		
+
 		System.out.println("\n==終了==");
 	}
 
