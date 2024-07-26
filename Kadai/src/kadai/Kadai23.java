@@ -6,8 +6,6 @@ public class Kadai23 {
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		//  ■■課題23■■　難易度★★★
-
 		// 10個の整数値を入力させた後、空白で区切り一行表示する。
 		// その後、探索データとして整数値を入力させ、一行表示させた10個の整数値と一致する要素を発見した場合、
 		// その要素より前の要素を順次一つ後ろに移動させ、発見した要素を先頭に格納して、一行表示をする。

@@ -52,7 +52,7 @@ public class Kadai17 {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param intList
 	 * @param searchNumber
 	 * @return
